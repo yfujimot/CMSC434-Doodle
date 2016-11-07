@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -13,7 +14,6 @@ import android.view.View;
  */
 
 public class Canvas extends View {
-
     private Path mPath = new Path();
     private Paint mPaint = new Paint();
 
@@ -38,6 +38,12 @@ public class Canvas extends View {
         mPaint.setStyle(Paint.Style.STROKE);
     }
 
+
+    public void clearCanvas() {
+        Log.i("Canvas", "Clear canvas button pressed");
+        this.mPath = new Path();
+        invalidate();
+    }
 
     @Override
     protected void onDraw(android.graphics.Canvas canvas) {
