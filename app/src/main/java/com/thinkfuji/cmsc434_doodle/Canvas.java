@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -32,13 +33,38 @@ public class Canvas extends View {
     }
 
     public void init(AttributeSet attrs, int defStyle) {
-        mPaint.setColor(Color.RED);
+        mPaint.setColor(Color.BLUE);
         mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.STROKE);
     }
+
 
     @Override
     protected void onDraw(android.graphics.Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawLine(0, 0, getWidth(), getHeight(), mPaint);
+//        canvas.drawLine(0, 0, getWidth(), getHeight(), mPaint);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        float touchX = event.getX();
+        float touchY = event.getY();
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(touchX, touchY);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(touchX, touchY);
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+
+        invalidate();
+
+        return true;
     }
 }
