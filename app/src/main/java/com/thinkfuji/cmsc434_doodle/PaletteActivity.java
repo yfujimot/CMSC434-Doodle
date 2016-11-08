@@ -35,24 +35,32 @@ public class PaletteActivity extends AppCompatActivity {
 
         final SeekBar hSeeker = (SeekBar) findViewById(R.id.hSeeker);
         final SeekBar sSeeker = (SeekBar) findViewById(R.id.sSeeker);
-        final SeekBar bSeeker = (SeekBar) findViewById(R.id.bSeeker);
+        final SeekBar lSeeker = (SeekBar) findViewById(R.id.lSeeker);
+        final SeekBar brushSeeker = (SeekBar) findViewById(R.id.brushSeeker);
+        final SeekBar opacitySeeker = (SeekBar) findViewById(R.id.opacitySeeker);
 
         // Note: Seekbar Step is always 1, and can't be changed.
         // Init ranges
         hSeeker.setBottom(0);
         hSeeker.setMax(359);
 
+        brushSeeker.setMax(50);
+
         sSeeker.setBottom(0);
         sSeeker.setMax(100); // Up to 1
 
-        bSeeker.setBottom(0);
-        bSeeker.setMax(100); // Up to 1
+        lSeeker.setBottom(0);
+        lSeeker.setMax(100); // Up to 1
+
+        hSeeker.setProgress(180);
+        sSeeker.setProgress(50);
+        lSeeker.setProgress(50);
 
         hSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Log.i("H Seek", i + "");
-                float[] colorValues = new float[]{(float)i, ((float) sSeeker.getProgress())/(float)(100.0), ((float) bSeeker.getProgress())/(float)100.0};
+                float[] colorValues = new float[]{(float)i, ((float) sSeeker.getProgress())/(float)(100.0), ((float) lSeeker.getProgress())/(float)100.0};
                 colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
             }
 
@@ -71,7 +79,7 @@ public class PaletteActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Log.i("S Seek", i + "");
-                float[] colorValues = new float[]{((int) hSeeker.getProgress()), i/(float)100.0, ((int) bSeeker.getProgress())/(float)100.0};
+                float[] colorValues = new float[]{((int) hSeeker.getProgress()), i/(float)100.0, ((int) lSeeker.getProgress())/(float)100.0};
                 colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
             }
 
@@ -86,12 +94,29 @@ public class PaletteActivity extends AppCompatActivity {
             }
         });
 
-        bSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        lSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Log.i("B Seek", i + "");
                 float[] colorValues = new float[]{((int) hSeeker.getProgress()), ((int) sSeeker.getProgress())/(float)100.0, i/(float)100.0};
                 colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        opacitySeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                colorPreview.setAlpha((float)i/50.0f);
             }
 
             @Override

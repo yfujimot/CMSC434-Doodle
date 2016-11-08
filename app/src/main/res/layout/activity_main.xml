@@ -13,11 +13,11 @@
 
     <com.thinkfuji.cmsc434_doodle.Canvas
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_above="@+id/clearButton"
         android:id="@+id/canvas"
         android:background="@android:color/white"
-        android:layout_below="@+id/redoButton" />
+        android:layout_below="@+id/redoButton"
+        android:layout_height="300dp" />
 
     <Button
         android:text="Clear"

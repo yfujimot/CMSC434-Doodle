@@ -34,7 +34,7 @@
         <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:id="@+id/seekBar2"
+            android:id="@+id/brushSeeker"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -58,7 +58,7 @@
     </View>
 
     <TextView
-        android:text="H"
+        android:text="Hue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
@@ -71,7 +71,7 @@
         android:id="@+id/hSeeker" />
 
     <TextView
-        android:text="S"
+        android:text="Saturation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
@@ -83,7 +83,7 @@
         android:id="@+id/sSeeker" />
 
     <TextView
-        android:text="B"
+        android:text="Lightness"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
@@ -92,7 +92,19 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bSeeker" />
+        android:id="@+id/lSeeker" />
+
+    <TextView
+        android:text="Opacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textColor="@android:color/background_light" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/opacitySeeker" />
 
     <TextView
         android:text="Stroke Type"
