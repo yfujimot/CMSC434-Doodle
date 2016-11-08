@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_palette"
     android:layout_width="match_parent"
@@ -8,16 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.thinkfuji.cmsc434_doodle.PaletteActivity"
     android:background="@color/Main">
-
-    <Button
-        android:text="Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/paletteSaveButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Brush Size"
@@ -29,39 +22,61 @@
         android:foregroundTint="@color/colorAccent"
         android:textColor="@android:color/background_light" />
 
-    <SeekBar
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/linearLayout7"
+        android:layout_alignParentStart="true">
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/seekBar2"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <TextView
         android:text="Color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:id="@+id/textView2"
-        android:layout_below="@+id/seekBar"
-        android:layout_alignParentStart="true"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"></LinearLayout>
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentStart="true">
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"></View>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"></View>
+        <View
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"></View>
+    </LinearLayout>
 
     <TextView
         android:text="Stroke Type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:layout_marginBottom="115dp"
+        android:layout_above="@+id/paletteCancelButton"
+        android:layout_alignParentStart="true" />
 
     <RadioButton
         android:text="RadioButton"
@@ -69,13 +84,31 @@
         android:layout_height="wrap_content"
         android:id="@+id/radioButton"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="71dp" />
 
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/paletteCancelButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paletteCancelButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paletteSaveButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

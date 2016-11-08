@@ -45,10 +45,13 @@ public class Canvas extends View {
         invalidate();
     }
 
+    public Path getPaths() {
+        return this.mPath;
+    }
+
     @Override
     protected void onDraw(android.graphics.Canvas canvas) {
         super.onDraw(canvas);
-//        canvas.drawLine(0, 0, getWidth(), getHeight(), mPaint);
         canvas.drawPath(mPath, mPaint);
     }
 
