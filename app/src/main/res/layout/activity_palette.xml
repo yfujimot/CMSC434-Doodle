@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.thinkfuji.cmsc434_doodle.PaletteActivity"
-    android:background="@color/Main">
+    android:background="@color/Main"
+    android:weightSum="1">
 
     <TextView
         android:text="Brush Size"
@@ -44,29 +45,54 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textColor="@android:color/background_light"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <View
         android:layout_height="100dp"
-        android:layout_above="@+id/textView3"
-        android:layout_alignParentStart="true">
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_light"
+        android:id="@+id/colorPreview">
+        android:background="@color/RED"
+    </View>
 
-        <View
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorAccent"></View>
+    <TextView
+        android:text="H"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="10dp" />
 
-        <View
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"></View>
-        <View
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"></View>
-    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hSeeker" />
+
+    <TextView
+        android:text="S"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textColor="@android:color/background_light" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sSeeker" />
+
+    <TextView
+        android:text="B"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textColor="@android:color/background_light" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bSeeker" />
 
     <TextView
         android:text="Stroke Type"
@@ -74,23 +100,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
         android:textColor="@android:color/background_light"
-        android:layout_marginBottom="115dp"
         android:layout_above="@+id/paletteCancelButton"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:text="RadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioButton"
-        android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="71dp" />
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="59dp"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:text="Cancel"

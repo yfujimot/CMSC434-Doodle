@@ -79,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
                         MediaStore.Images.Media.insertImage(getContentResolver(), image, "Doodler Screenshot" , "Masterpiece.");
                         Toast.makeText(MainActivity.this, "Screenshot saved to gallery.", Toast.LENGTH_LONG).show();
                     }
-//                    MediaStore.Images.Media.insertImage(getContentResolver(), image, "Doodler Screenshot" , "Masterpiece.");
-//                    Toast.makeText(MainActivity.this, "Screenshot saved to gallery.", Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     Log.i("Capture", e.getLocalizedMessage().toString());
                 }
