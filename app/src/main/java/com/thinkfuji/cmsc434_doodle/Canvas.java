@@ -41,7 +41,7 @@ public class Canvas extends View {
 
     public void clearCanvas() {
         Log.i("Canvas", "Clear canvas button pressed");
-        this.mPath = new Path();
+        this.mPath.reset();
         invalidate();
     }
 
@@ -51,7 +51,6 @@ public class Canvas extends View {
 //        canvas.drawLine(0, 0, getWidth(), getHeight(), mPaint);
         canvas.drawPath(mPath, mPaint);
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -72,5 +71,9 @@ public class Canvas extends View {
         invalidate();
 
         return true;
+    }
+
+    public void undoPath() {
+        this.mPath.rewind();
     }
 }
