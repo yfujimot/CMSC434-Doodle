@@ -49,6 +49,10 @@ public class Canvas extends View {
         this.mPaint.setColor(color);
     }
 
+    public void setBrushSize(int size) {
+        this.mPaint.setStrokeWidth((float)size);
+    }
+
     public Path getPaths() {
         return this.mPath;
     }

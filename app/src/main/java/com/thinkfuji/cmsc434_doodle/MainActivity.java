@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
@@ -27,7 +28,27 @@ public class MainActivity extends AppCompatActivity {
         final int REQUEST_PALETTE = 99;
         final int REQUEST_WRITE_PERMISISON = 999;
         final Canvas canvas = (Canvas) findViewById(R.id.canvas);
+        final SeekBar brushSeek = (SeekBar) findViewById(R.id.brushSeek);
 
+        brushSeek.setBottom(1);
+        brushSeek.setMax(100);
+
+        brushSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                canvas.setBrushSize(i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         canvas.setDrawingCacheEnabled(true);
 
         Button clearButton = (Button) findViewById(R.id.clearButton);
@@ -83,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void writeImageToDisk() {
