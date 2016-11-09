@@ -19,7 +19,6 @@ import java.io.FileOutputStream;
 import java.security.Permission;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        final Canvas canvas = (Canvas) findViewById(R.id.canvas);
+        if (resultCode == RESULT_OK) {
+            int brushColor = data.getIntExtra("brushColor", 0x0);
+            canvas.setBrushColor(brushColor);
+        } else {
+            Log.i("Palette Result", "User canceled");
+        }
 
     }
 }

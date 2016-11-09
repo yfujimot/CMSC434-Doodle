@@ -45,6 +45,10 @@ public class Canvas extends View {
         invalidate();
     }
 
+    public void setBrushColor(int color) {
+        this.mPaint.setColor(color);
+    }
+
     public Path getPaths() {
         return this.mPath;
     }

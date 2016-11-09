@@ -1,5 +1,7 @@
 package com.thinkfuji.cmsc434_doodle;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,22 +16,6 @@ public class PaletteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_palette);
-
-        Button cancelButton = (Button) findViewById(R.id.paletteCancelButton);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-        Button saveButton = (Button) findViewById(R.id.paletteSaveButton);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         final View colorPreview = (View) findViewById(R.id.colorPreview);
 
@@ -55,6 +41,28 @@ public class PaletteActivity extends AppCompatActivity {
         hSeeker.setProgress(180);
         sSeeker.setProgress(50);
         lSeeker.setProgress(50);
+
+        /* Listeners */
+        Button cancelButton = (Button) findViewById(R.id.paletteCancelButton);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        Button saveButton = (Button) findViewById(R.id.paletteSaveButton);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent data = new Intent();
+                float[] colorValues = new float[]{(float) hSeeker.getProgress(), (float) sSeeker.getProgress()/100.0f, (float) lSeeker.getProgress()/100.0f};
+                int brushColor = ColorUtils.HSLToColor(colorValues);
+                data.putExtra("brushColor", brushColor); // as int
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        });
 
         hSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
