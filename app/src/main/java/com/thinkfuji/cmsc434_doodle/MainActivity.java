@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         final SeekBar saturationSeek = (SeekBar) findViewById(R.id.saturationSeek);
         final SeekBar lightnessSeek = (SeekBar) findViewById(R.id.lightnessSeek);
         final SeekBar opacitySeek = (SeekBar) findViewById(R.id.opacitySeek);
+        final View colorPreview = (View) findViewById(R.id.colorPreview);
 
         brushSeek.setBottom(1);
         brushSeek.setMax(100);
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 float[] colorValues = new float[]{(float)i, ((float) saturationSeek.getProgress())/(float)(100.0), ((float) lightnessSeek.getProgress())/(float)100.0};
                 canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+                colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
             }
 
             @Override
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 float[] colorValues = new float[]{((int) hueSeek.getProgress()), i/(float)100.0, ((int) lightnessSeek.getProgress())/(float)100.0};
                 canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+                colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
             }
 
             @Override
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 float[] colorValues = new float[]{(float)i, ((float) saturationSeek.getProgress())/(float)(100.0), ((float) lightnessSeek.getProgress())/(float)100.0};
                 canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+                colorPreview.setBackgroundColor(ColorUtils.HSLToColor(colorValues));
             }
 
             @Override
@@ -128,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 canvas.setOpacity(i);
+                colorPreview.setAlpha(i/100.0f);
             }
 
             @Override

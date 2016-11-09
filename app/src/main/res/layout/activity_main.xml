@@ -129,4 +129,21 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/lightnessSeek" />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/brushSeek"
+        android:layout_toEndOf="@+id/opacitySeek"
+        android:layout_above="@+id/canvas"></View>
+
+    <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:layout_below="@+id/brushSeek"
+            android:layout_toEndOf="@+id/opacitySeek"
+            android:layout_above="@+id/canvas"
+            android:id="@+id/colorPreview"></View>
+
 </RelativeLayout>
