@@ -18,3 +18,10 @@ the tools, the drawing, and actions are all available on a single screen.
 
 I used a mix of horizontal and vertical linear layout for the settings view, but ended up just combining it into a relative 
 layout at the end.
+
+## Usage
+
+1. Git clone repo
+2. Import project into Android Studio
+3. Run application on android device or emulator
+
