@@ -83,22 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        Button undoButton = (Button) findViewById(R.id.undoButton);
-        undoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                canvas.getPaths().rewind();
-            }
-        });
-
-        Button redoButton = (Button) findViewById(R.id.redoButton);
-        redoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     private void writeImageToDisk() {
