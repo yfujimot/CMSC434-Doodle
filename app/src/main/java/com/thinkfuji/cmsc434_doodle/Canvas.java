@@ -53,6 +53,10 @@ public class Canvas extends View {
         this.mPaint.setStrokeWidth((float)size);
     }
 
+    public void setOpacity(int alpha) {
+        this.mPaint.setAlpha(alpha);
+    }
+
     public Path getPaths() {
         return this.mPath;
     }

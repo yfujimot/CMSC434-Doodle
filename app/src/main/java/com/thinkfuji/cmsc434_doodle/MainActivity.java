@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,9 +30,28 @@ public class MainActivity extends AppCompatActivity {
         final int REQUEST_WRITE_PERMISISON = 999;
         final Canvas canvas = (Canvas) findViewById(R.id.canvas);
         final SeekBar brushSeek = (SeekBar) findViewById(R.id.brushSeek);
+        final SeekBar hueSeek = (SeekBar) findViewById(R.id.hueSeek);
+        final SeekBar saturationSeek = (SeekBar) findViewById(R.id.saturationSeek);
+        final SeekBar lightnessSeek = (SeekBar) findViewById(R.id.lightnessSeek);
+        final SeekBar opacitySeek = (SeekBar) findViewById(R.id.opacitySeek);
 
         brushSeek.setBottom(1);
         brushSeek.setMax(100);
+
+        // Init ranges
+        hueSeek.setBottom(0);
+        hueSeek.setMax(359);
+
+        saturationSeek.setBottom(0);
+        saturationSeek.setMax(100); // Up to 1
+
+        lightnessSeek.setBottom(0);
+        lightnessSeek.setMax(100); // Up to 1
+
+        hueSeek.setProgress(180);
+        saturationSeek.setProgress(50);
+        lightnessSeek.setProgress(50);
+
 
         brushSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -49,6 +69,78 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        hueSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                float[] colorValues = new float[]{(float)i, ((float) saturationSeek.getProgress())/(float)(100.0), ((float) lightnessSeek.getProgress())/(float)100.0};
+                canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        saturationSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                float[] colorValues = new float[]{((int) hueSeek.getProgress()), i/(float)100.0, ((int) lightnessSeek.getProgress())/(float)100.0};
+                canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        lightnessSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                float[] colorValues = new float[]{(float)i, ((float) saturationSeek.getProgress())/(float)(100.0), ((float) lightnessSeek.getProgress())/(float)100.0};
+                canvas.setBrushColor(ColorUtils.HSLToColor(colorValues));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        opacitySeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                canvas.setOpacity(i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         canvas.setDrawingCacheEnabled(true);
 
         Button clearButton = (Button) findViewById(R.id.clearButton);
