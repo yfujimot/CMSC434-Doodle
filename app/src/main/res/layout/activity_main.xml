@@ -28,14 +28,6 @@
         android:id="@+id/clearButton" />
 
     <Button
-        android:text="Palette"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/canvas"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/settingsButton" />
-
-    <Button
         android:text="Capture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

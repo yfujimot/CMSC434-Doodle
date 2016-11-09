@@ -156,15 +156,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button settingsButton = (Button) findViewById(R.id.settingsButton);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PaletteActivity.class);
-                startActivityForResult(intent, REQUEST_PALETTE);
-            }
-        });
-
         Button captureButton = (Button) findViewById(R.id.captureButton);
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,12 +192,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-    }
-
-    private void writeImageToDisk() {
-
     }
 
     @Override
